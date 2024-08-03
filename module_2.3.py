@@ -10,4 +10,4 @@ while i < len(my_list):
     else:
         i += 1
         continue
-    i+= 1
+    i += 1
