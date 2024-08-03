@@ -1,4 +1,4 @@
-my_dict = {"Roman": 2003, "Sveta": 1981}
+my_dict = {'Roman': 2003, 'Sveta': 1981}
 
 print(f'Dict: {my_dict}')
 
