@@ -19,15 +19,3 @@ print(send_email('Пожалуйста, исправьте задание', 'urb
 print(send_email('Напоминаю самому себе о вебинаре', 'urban.teacher@mail.ru', sender='urban.teacher@mail.ru'))
 
 
-# def send_mail(message, recipient, sender='university.help@gmail.com'):
-#     valid_domains = ('.com', '.ru', '.net')
-#
-#     def is_valid_email(email):
-#         return '@' in email and str(email).endswith(valid_domains)
-#
-#     if not is_valid_email(sender) or not is_valid_email(recipient):
-#         print(f"Невозможно отправить письмо с адреса {sender} на адрес {recipient}")
-#
-#     if recipient == sender:
-#         print('Нельзя отправить письмо самому себе!')
-
