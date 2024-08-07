@@ -14,12 +14,11 @@ print_params(b=25)
 
 print_params(c=[1, 2, 3])
 
-
-values_list = [1,'string',True]
-values_dict = {'a':2, 'b':'new string','c':False}
+values_list = [1, 'string', True]
+values_dict = {'a': 2, 'b': 'new string', 'c': False}
 
 print_params(*values_list)
 print_params(**values_dict)
 
-values_list_2 = [54.32,'Stroka']
-print_params(*values_list_2,42)
+values_list_2 = [54.32, 'Stroka']
+print_params(*values_list_2, 42)
