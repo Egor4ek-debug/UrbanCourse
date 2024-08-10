@@ -10,10 +10,10 @@ class House:
             print(*[i for i in range(new_floor + 1)], sep='\n')
 
     def __len__(self):
-        return (self.number_of_floors)
+        return self.number_of_floors
 
     def __str__(self):
-        return (f'Название {self.name}, количетсво этажей: {self.number_of_floors}')
+        return f'Название {self.name}, количетсво этажей: {self.number_of_floors}'
 
 
 h1 = House('ЖК Эльбрус', 10)
