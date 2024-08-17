@@ -15,10 +15,10 @@ class Animal:
 
 
 class Plant:
+    edible = False
 
     def __init__(self, name):
         self.name = name
-        self.edible = False
 
 
 class Mammal(Animal):
@@ -32,15 +32,11 @@ class Predator(Animal):
 
 
 class Flower(Plant):
-    def __init__(self, name):
-        super().__init__(name)
-        self.edible = False
+    edible = False
 
 
 class Fruit(Plant):
-    def __init__(self, name):
-        super().__init__(name)
-        self.edible = True
+    edible = True
 
 
 a1 = Predator('Волк с Уолл-Стрит')
