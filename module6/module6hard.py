@@ -95,9 +95,9 @@ import math
 class Figure:
     sides_count = 0
 
-    def __init__(self, color, sides):
-        self.__sides = list(sides)
+    def __init__(self, color, *sides):
         self.__color = list(color)
+        self.__sides = list(sides)
         self.filled = False
 
     def get_color(self):
@@ -125,7 +125,6 @@ class Figure:
 
     def __len__(self):
         return sum(self.__sides)
-
     def set_sides(self, *new_sides):
         if self.__is_valid_sides(*new_sides):
             self.__sides = list(new_sides)
@@ -145,6 +144,9 @@ class Circle(Figure):
 class Triangle(Figure):
     sides_count = 3
 
+    def __init__(self, color, *sides):
+        super().__init__(color, *sides)
+
     def get_square(self):
         a, b, c = self.get_sides()
         s = (a + b + c) / 2
@@ -155,7 +157,7 @@ class Cube(Figure):
     sides_count = 12
 
     def __init__(self, color, side):
-        super().__init__([side] * self.sides_count, color)
+        super().__init__(color, *([side] * self.sides_count))
 
     def get_volume(self):
         return self.get_sides()[0] ** 3
@@ -163,7 +165,7 @@ class Cube(Figure):
 
 circle1 = Circle((200, 200, 100), 10)  # (Цвет, стороны)
 cube1 = Cube((222, 35, 130), 6)
-triangle1 = Triangle((123, 51, 21), (3, 4, 5))
+triangle1 = Triangle((123, 51, 21), 3, 4, 5)
 
 # Проверка на изменение цветов:
 circle1.set_color(55, 66, 77)  # Изменится
