@@ -27,6 +27,7 @@ class WordsFinder:
         if not find_word:
             return 'Такого слова в файлах нет'
         return find_word
+
     def count(self, word):
         all_word = self.get_all_words()
         word = word.lower()
@@ -47,6 +48,6 @@ class WordsFinder:
 
 
 finder2 = WordsFinder('test_file.txt')
-print(finder2.get_all_words()) # Все слова
-print(finder2.find('TEXT')) # 3 слово по счёту
-print(finder2.count('teXT')) # 4 слова teXT в тексте всего
+print(finder2.get_all_words())  # Все слова
+print(finder2.find('TEXT'))  # 3 слово по счёту
+print(finder2.count('teXT'))  # 4 слова teXT в тексте всего
