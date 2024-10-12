@@ -1,5 +1,6 @@
 import unittest
 
+
 class Runner:
     def __init__(self, name, speed=5):
         self.name = name
@@ -41,10 +42,13 @@ class Tournament:
 
 
 class TournamentTest(unittest.TestCase):
+    is_frozen = True
+
     @classmethod
     def setUpClass(cls):
         cls.all_results = {}
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def setUp(self):
         self.useyn = Runner('Усейн', 10)
         self.andrew = Runner('Андрей', 9)
@@ -55,18 +59,21 @@ class TournamentTest(unittest.TestCase):
         for result in cls.all_results.values():
             print(result)
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_usain_and_nick(self):
         tournament = Tournament(90, self.useyn, self.nik)
         result = tournament.start()
         self.__class__.all_results["Usain_and_Nick"] = {k: str(v) for k, v in result.items()}
         self.assertTrue(result[max(result.keys())] == "Ник")
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_andrew_and_nick(self):
         tournament = Tournament(90, self.andrew, self.nik)
         result = tournament.start()
         self.__class__.all_results["Andrew_and_Nick"] = {k: str(v) for k, v in result.items()}
         self.assertTrue(result[max(result.keys())] == "Ник")
 
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_usain_andrew_and_nick(self):
         tournament = Tournament(90, self.useyn, self.andrew, self.nik)
         result = tournament.start()
