@@ -1,5 +1,4 @@
 from aiogram import Bot, Dispatcher, types
-from aiogram.fsm.storage.memory import MemoryStorage
 import asyncio
 import os
 from dotenv import load_dotenv
