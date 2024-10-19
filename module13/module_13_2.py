@@ -8,7 +8,7 @@ config = load_dotenv()
 
 TOKEN = os.getenv('BOT_TOKEN')
 dp = Dispatcher()
-
+bot = Bot(token=TOKEN)
 
 @dp.message(CommandStart())
 async def start(message):
@@ -21,7 +21,7 @@ async def all_message(message):
 
 
 async def main():
-    bot = Bot(token=TOKEN)
+
 
     await dp.start_polling(bot)
 
