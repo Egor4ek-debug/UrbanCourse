@@ -6,7 +6,7 @@ import os
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.storage.memory import MemoryStorage
 from dotenv import load_dotenv
-
+from aiogram.filters import CommandStart
 
 class UserState(StatesGroup):
     gender = State()
@@ -21,6 +21,10 @@ TOKEN = os.getenv('BOT_TOKEN')
 dp = Dispatcher(storage=MemoryStorage())
 bot = Bot(token=TOKEN)
 
+
+@dp.message(CommandStart())
+async def start(message: types.Message):
+    await message.answer('Привет! Я бот помогающий твоему здоровью')
 
 @dp.message(F.text == 'Calories')
 async def set_age(message: types.Message, state: FSMContext):
