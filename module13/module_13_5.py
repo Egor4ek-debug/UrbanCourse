@@ -22,12 +22,11 @@ config = load_dotenv()
 TOKEN = os.getenv('BOT_TOKEN')
 dp = Dispatcher(storage=MemoryStorage())
 bot = Bot(token=TOKEN)
-
+kb = [[KeyboardButton(text='Рассчитать')], [KeyboardButton(text='Информация')]]
+keyboard = ReplyKeyboardMarkup(keyboard=kb,resize_keyboard=True)
 
 @dp.message(CommandStart())
 async def start(message: types.Message):
-    kb = [[KeyboardButton(text='Рассчитать')], [KeyboardButton(text='Информация')]]
-    keyboard = ReplyKeyboardMarkup(keyboard=kb)
     await message.answer('Привет! Я бот помогающий твоему здоровью', reply_markup=keyboard)
 
 
