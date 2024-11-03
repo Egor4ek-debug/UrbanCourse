@@ -27,6 +27,8 @@ cursor.execute('''
     )
 ''')
 
+cursor.execute('DELETE FROM Users WHERE id = 1')
+
 cursor.execute("SELECT * FROM Users ORDER BY id")
 ids = [row[0] for row in cursor.fetchall()]
 
