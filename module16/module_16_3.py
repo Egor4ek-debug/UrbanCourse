@@ -10,18 +10,18 @@ async def get_all_users() -> dict:
     return users
 
 
-@app.post('/users/{username}/{age}')
-async def create_new_message(username: str, age: str) -> dict:
+@app.post('/user/{username}/{age}')
+async def create_new_message(username: str, age: str) -> str:
     last_index = str(int(max(users, key=int)) + 1)
     users[last_index] = f'Имя: {username}, возраст: {age}'
-    return users
+    return f'User {last_index} is registered'
 
 
 @app.put('/user/{user_id}/{username}/{age}')
 async def update_current_user(user_id: str, username: str, age: str) -> str:
     if user_id in users:
         users[user_id] = f'Имя: {username}, возраст: {age}'
-        return 'Info about user update successfully'
+        return f'The user {user_id} is updated'
     return 'User not found'
 
 
@@ -29,5 +29,5 @@ async def update_current_user(user_id: str, username: str, age: str) -> str:
 async def delete_current_user(user_id: str) -> str:
     if user_id in users:
         users.pop(user_id)
-        return 'Current user delete successfully'
+        return f'User {user_id} has been deleted'
     return 'User not found'
