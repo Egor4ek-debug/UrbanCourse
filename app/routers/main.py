@@ -1,6 +1,7 @@
 from fastapi import FastAPI
-from app.models.task import router as task_router
-from app.models.user import router as user_router
+
+from ..models.task import router as task_router
+from ..models.user import router as user_router
 
 app = FastAPI()
 
@@ -10,3 +11,4 @@ async def root():
 
 app.include_router(task_router)
 app.include_router(user_router)
+
