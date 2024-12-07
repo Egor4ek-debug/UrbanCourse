@@ -7,6 +7,9 @@ class CreateUser(BaseModel):
     lastname: str
     age: int
 
+    class Config:
+        orm_mode = True
+
 
 class UpdateUser(BaseModel):
     firstname: str
